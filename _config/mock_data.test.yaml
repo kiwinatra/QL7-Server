@@ -1,0 +1,77 @@
+# mock_data.yaml
+# qt7.cloud.ipts.to/__/apiv1/test.sql
+
+users:
+    - id: "dev_test1"
+      name: "Иван Петров"
+      email: "ivan.petrov@if.at"
+      phone: "+79161234567"
+      password_hash: "$2a$10$N9qo8uLOickgx2ZMRZoMy..."  # bcrypt: "password123"
+      role: "client"
+      is_active: true
+      created_at: "2024-01-15T10:00:00Z"
+  
+    - id: "user_2"
+      name: "Алексей Смирнов"
+      email: "alex.smirnov@example.com"
+      phone: "+79031112233"
+      password_hash: "$2a$10$6fZ5pLbKj9XJjJl7tYQzO..."  # bcrypt: "securepass"
+      role: "client"
+      is_active: true
+      created_at: "2024-01-16T11:30:00Z"
+  
+  accounts:
+    - id: "acc_1"
+      user_id: "user_1"
+      currency: "RUB"
+      balance: 1
+      status: "active"
+      iban: "RU02123456780987654321"
+      opened_at: "2024-01-15T10:05:00Z"
+  
+    - id: "acc_2"
+      user_id: "user_2"
+      currency: "USD"
+      balance: 1
+      status: "active"
+      iban: "US33123456780098765432"
+      opened_at: "2024-01-16T11:35:00Z"
+  
+  cards:
+    - id: "card_1"
+      account_id: "acc_1"
+      number: "4111111111111111"
+      holder_name: "IVAN PETROV"
+      expiry: "12/25"
+      cvv: "123"
+      type: "debit"
+      status: "active"
+  
+    - id: "card_2"
+      account_id: "acc_2"
+      number: "5555555555554444"
+      holder_name: "ALEXEY SMIRNOV"
+      expiry: "06/26"
+      cvv: "456"
+      type: "credit"
+      credit_limit: 10000.00
+      status: "active"
+  
+  transactions:
+    - id: "txn_1"
+      from_account: "acc_1"
+      to_account: "acc_2"
+      amount: 10000.00
+      currency: "RUB"
+      description: "Перевод за услуги"
+      status: "completed"
+      created_at: "2024-02-01T14:30:00Z"
+  
+    - id: "txn_2"
+      from_account: "acc_2"
+      to_account: "acc_1"
+      amount: 1
+      currency: "USD"
+      description: "Возврат долга"
+      status: "pending"
+      created_at: "2024-02-02T09:15:00Z"

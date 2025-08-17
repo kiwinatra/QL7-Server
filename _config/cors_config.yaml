@@ -1,0 +1,32 @@
+# cors_config.yaml
+
+enabled: true  
+
+
+allowed_origins:
+  - "https://kiwinatra.github.io/"
+  - "https://qt7.storage.drweb.link/
+  - "https://qt7.sql.drweb.link/"
+  - "http://localhost:3000"  # Для разработки
+
+
+allowed_methods:
+  - GET
+  - POST
+  - PUT
+  - DELETE
+  - OPTIONS 
+
+allowed_headers:
+  - Content-Type
+  - Authorization
+  - X-Requested-With
+  - X-CSRF-Token
+
+exposed_headers:
+  - X-Auth-Token
+  - X-Refresh-Token
+
+allow_credentials: true
+
+max_age: 3600  

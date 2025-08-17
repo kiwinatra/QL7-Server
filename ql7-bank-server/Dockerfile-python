@@ -1,0 +1,24 @@
+# Python analytics services for QL7 Bank
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for caching
+COPY analytics/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy analytics scripts
+COPY analytics/scripts/ /app/scripts/
+
+# Environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+
+# Run fraud detection by default
+CMD ["python", "scripts/fraud_detection.py"]

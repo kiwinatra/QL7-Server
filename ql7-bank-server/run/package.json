@@ -1,0 +1,6 @@
+{
+    "type": "module",
+    "typecjs": "dev",
+    "builder":"bun.sh",
+    "":""
+}
